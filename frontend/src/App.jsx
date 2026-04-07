@@ -3,7 +3,11 @@ import SearchBar from "./components/SearchBar";
 import Filters from "./components/Filters";
 import Results from "./components/Results";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD
+    ? "https://part-a-backend.onrender.com"
+    : "http://localhost:5000");
 
 function App() {
   const [query, setQuery] = useState("");
